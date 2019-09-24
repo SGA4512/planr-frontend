@@ -3,60 +3,59 @@ import axios from "axios";
 // const apiUrl = "http://localhost:5000/api";
 const apiUrl = "https://egge-corporate-ep.herokuapp.com/api";
 
-// EVENTs ------------------------------------------
-
-// get all events
+// EVENTS ======================================================
+// Read all
 export function getEvents() {
   return axios.get(`${apiUrl}/events/`);
 }
 
-// get individual event
+// Read event
 export function getEvent(id) {
   return axios.get(`${apiUrl}/events/${id}`);
 }
 
-// add event
+// Create
 export function addEvent(event) {
   return axios.post(`${apiUrl}/events/`, event);
 }
 
-// delete event
+// Delete
 export function deleteEvent(id) {
   return axios.delete(`${apiUrl}/events/${id}`);
 }
 
-// edit event
-export function editEvent(id) {
-  return axios.put(`${apiUrl}/events/${id}`);
+// Edit
+export function editEvent(id, input) {
+  return axios.put(`${apiUrl}/events/${id}`, input);
 }
 
-// SHOPPING LIST ------------------------------------------
-// get all items
+// SHOPPING LIST ======================================================
+// Read all
 export function getListItems() {
   return axios.get(`${apiUrl}/lists/`);
 }
 
-// get individual item
+// Read
 export function getListItem(listId) {
   return axios.get(`${apiUrl}/lists/${listId}`);
 }
 
-// add item
+// Create
 export function addListItem(listItem) {
   return axios.post(`${apiUrl}/lists/`, listItem);
 }
 
-// edit item
+// Edit
 export function editListItem(listItem) {
   return axios.put(`${apiUrl}/lists/${listItem.id}`, listItem);
 }
 
-// delete item
+// Delete
 export function deleteListItem(listId) {
   return axios.delete(`${apiUrl}/lists/${listId}`);
 }
 
-// USERS ------------------------------------------
+// USERS ======================================================
 export function refresh() {
   return axios.get(`${apiUrl}/refresh`);
 }

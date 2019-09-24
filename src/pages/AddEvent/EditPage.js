@@ -14,11 +14,11 @@ const EditPage = props => {
         setEvent(res.data);
         console.log(res.data);
       })
-
       .catch(err => console.log(err));
   }, [eventId]);
+
   if (!event) {
-    return <div style={{ height: "600px" }}>Loading events...</div>;
+    return <div style={{ height: "600px" }}>Loading event...</div>;
   }
 
   return (
