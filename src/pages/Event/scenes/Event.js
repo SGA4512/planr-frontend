@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import ShoppingList from "../components/ShoppingList/ShoppingList";
-import { allEvents } from "../../../services/data";
+// import { allEvents } from "../../../services/data";
 import * as api from "../../../services/api";
 import moment from "moment";
 import UserContext from "../../../contexts/UserContext";
 
 const Event = props => {
-  const { user, setUser, isAdmin } = useContext(UserContext);
+  const { isAdmin } = useContext(UserContext);
 
   // Uncomment to use dummy data instead of API endpoints
   // const { eventId } = props.match.params.id;
@@ -27,7 +27,7 @@ const Event = props => {
 
   const startDate = moment(event.event_start).format("MMMM Do, YYYY");
   const endDate = moment(event.event_end).format("MMMM Do, YYYY");
-  const timeTilEvent = moment(event.event_start).fromNow();
+  // const timeTilEvent = moment(event.event_start).fromNow();
 
   const deleteEvent = e => {
     e.preventDefault();

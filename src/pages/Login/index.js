@@ -22,7 +22,7 @@ const LoginForm = ({
       setUser(status);
       props.history.push("/");
     }
-  }, [status]);
+  }, [status, setUser, props.history]);
 
   return (
     <div className="form-container">

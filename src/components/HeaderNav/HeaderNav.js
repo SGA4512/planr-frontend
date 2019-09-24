@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
 import * as api from "../../services/api";
 import UserContext from "../../contexts/UserContext.js";
 
 const HeaderNav = props => {
-  const { user, setUser, isAdmin } = useContext(UserContext);
+  const { user, setUser /*isAdmin*/ } = useContext(UserContext);
 
-  console.log("user", user);
+  // console.log("user", user);
   const logout = () => {
     api
       .logout()
