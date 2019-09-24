@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
-import RegisterForm from "./pages/Register/index";
+
+import HeaderNav from "./components/HeaderNav/HeaderNav";
+import LoginForm from "./pages/Login";
+import RegisterForm from "./pages/Register";
 import EventsList from "./pages/EventsList/scenes/EventsList";
 import AddEvent from "./pages/AddEvent/AddEvent";
 import EditPage from "./pages/AddEvent/EditPage";
 import Event from "./pages/Event/scenes/Event";
-import LoginForm from "./pages/Login/LoginForm";
-import HeaderNav from "./components/HeaderNav/HeaderNav";
+
 import UserContext from "./contexts/UserContext";
-import { refresh } from "./services/api";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import { refresh } from "./services/api";
 
 function App() {
   const [user, setUser] = useState({});

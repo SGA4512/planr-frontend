@@ -2,7 +2,6 @@ import React, { useEffect, useContext } from "react";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 import * as api from "../../services/api";
-import "./LoginForm.scss";
 import UserContext from "../../contexts/UserContext.js";
 
 const LoginForm = ({
@@ -27,7 +26,7 @@ const LoginForm = ({
 
   return (
     <div className="form-container">
-      <h1>Sign In</h1>
+      <h1>Log In</h1>
       <Form>
         <Field type="text" name="username" placeholder="Userame" />
         {touched.name && errors.name && <p className="error">{errors.name}</p>}
@@ -52,8 +51,8 @@ const FormikLoginForm = withFormik({
 
   // use yup to enforce input requirements
   validationSchema: Yup.object().shape({
-    username: Yup.string().required("Please Enter Your Name"),
-    password: Yup.string().required("Please Enter Your Password")
+    username: Yup.string().required("Username is required."),
+    password: Yup.string().required("Password is required.")
   }),
 
   // update values and set status

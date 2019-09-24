@@ -62,7 +62,11 @@ export function refresh() {
 }
 
 export function login(values) {
-  return axios.post(`${apiUrl}`, values);
+  return axios.post(`${apiUrl}/login`, values);
+}
+
+export function register(values) {
+  return axios.post(`${apiUrl}/register`, values);
 }
 
 // EMULATE A PROMISE

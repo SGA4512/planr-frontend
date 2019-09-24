@@ -12,6 +12,7 @@ const RegistrationForm = ({
   status,
   ...props
 }) => {
+  // hook keeps track of login information
   const { setUser } = useContext(UserContext);
 
   // update login if change has occured
@@ -47,14 +48,11 @@ const RegistrationForm = ({
             <option value={2}>Manager</option>
             <option value={3}>Regular User</option>
           </Field>
-
           {touched.role_id && errors.role_id && (
             <p className="error">{errors.role_id}</p>
           )}
         </div>
-
         <div className="field">
-          {/* password */}
           <Field type="password" name="password" placeholder="Password" />
           {touched.password && errors.password && (
             <p className="error">{errors.password}</p>
@@ -62,7 +60,6 @@ const RegistrationForm = ({
         </div>
         <button type="submit">Submit</button>
       </Form>
-      {/* </Paper> */}
     </div>
   );
 };
@@ -80,10 +77,10 @@ const FormikRegistrationForm = withFormik({
 
   // use yup to enforce input requirements
   validationSchema: Yup.object().shape({
-    username: Yup.string().required("Please Enter Your Name"),
-    email: Yup.string().required("Please Enter Your Email"),
-    role_id: Yup.string().required("Please Enter Your Role"),
-    password: Yup.string().required("Please Enter Your Password")
+    username: Yup.string().required("Username is required."),
+    email: Yup.string().required("Email is required."),
+    role_id: Yup.string().required("Role is required."),
+    password: Yup.string().required("Password is required")
   }),
 
   // update values and set status
@@ -91,7 +88,7 @@ const FormikRegistrationForm = withFormik({
     // console.log("values, props", values, props);
 
     api
-      .login(values)
+      .register(values)
       .then(response => {
         setStatus(response.data);
       })
@@ -100,6 +97,6 @@ const FormikRegistrationForm = withFormik({
       });
     resetForm();
   }
-})(RegistrationForm);
+})(RegistrationForm); // currying functions
 
 export default FormikRegistrationForm;
