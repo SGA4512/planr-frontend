@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import * as api from "../../services/api";
 import UserContext from "../../contexts/UserContext.js";
 
 const HeaderNav = props => {
   const { user, setUser, isAdmin } = useContext(UserContext);
 
-  function logout() {
-    axios
-      .get("https://egge-corporate-ep.herokuapp.com/api/logout")
+  console.log("user", user);
+  const logout = () => {
+    api
+      .logout()
       .then(response => {
         console.log(response);
         setUser(false);
@@ -17,11 +19,7 @@ const HeaderNav = props => {
       .catch(error => {
         console.log(error);
       });
-  }
-
-  // TESTING CONDITIONAL RENDERING
-
-  const loggedOut = null;
+  };
 
   return (
     <nav className="nav-header-container">
@@ -29,12 +27,19 @@ const HeaderNav = props => {
         <NavLink to="/">Planr</NavLink>
       </div>
       <div className="nav-links">
-        <NavLink to="/">Your Events</NavLink>
-        {/* {isAdmin() ? <NavLink to="/addevent">Create New Event</NavLink> : null} */}
-        <NavLink to="/addevent">Create New Event</NavLink>
-        <NavLink to="/register">Register</NavLink>
-        <NavLink to="/login">Login</NavLink>
-        {user && <button onClick={logout}>LOGOUT</button>}
+        {!user ? (
+          <>
+            <NavLink to="/register">Register</NavLink>
+            <NavLink to="/login">Login</NavLink>)
+          </>
+        ) : (
+          <>
+            <NavLink to="/">Your Events</NavLink>
+            {/* {isAdmin() ? <NavLink to="/addevent">Create New Event</NavLink> : null} */}
+            <NavLink to="/addevent">Create New Event</NavLink>
+            <button onClick={logout}>LOGOUT</button>
+          </>
+        )}
       </div>
     </nav>
   );

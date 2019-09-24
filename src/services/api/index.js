@@ -64,6 +64,10 @@ export function login(values) {
   return axios.post(`${apiUrl}/login`, values);
 }
 
+export function logout() {
+  return axios.get(`${apiUrl}/logout`);
+}
+
 export function register(values) {
   return axios.post(`${apiUrl}/register`, values);
 }

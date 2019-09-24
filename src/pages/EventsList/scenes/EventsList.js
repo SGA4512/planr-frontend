@@ -6,7 +6,6 @@ import moment from "moment";
 import { Timeline } from "antd";
 
 const EventsList = props => {
-  // console.log(allEvents)
   const [eventsList, setEventsList] = useState(null);
   const [searchText, setSearchText] = useState("");
   // filtered event list var
