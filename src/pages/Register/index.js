@@ -27,37 +27,31 @@ const RegistrationForm = ({
     <div className="form-container">
       <h1>Sign Up</h1>
       <Form>
-        <div className="field">
-          <Field type="text" name="username" placeholder="Username" />
-          {touched.username && errors.username && (
-            <p className="error">{errors.username}</p>
-          )}
-        </div>
+        <Field type="text" name="username" placeholder="Username" />
+        {touched.username && errors.username && (
+          <p className="error">{errors.username}</p>
+        )}
 
-        <div className="field">
-          <Field type="text" name="email" placeholder="Email" />
-          {touched.email && errors.email && (
-            <p className="error">{errors.email}</p>
-          )}
-        </div>
+        <Field type="text" name="email" placeholder="Email" />
+        {touched.email && errors.email && (
+          <p className="error">{errors.email}</p>
+        )}
 
-        <div className="field">
-          <Field component="select" name="role_id">
-            <option>Select a Role</option>
-            <option value={1}>Admin</option>
-            <option value={2}>Manager</option>
-            <option value={3}>Regular User</option>
-          </Field>
-          {touched.role_id && errors.role_id && (
-            <p className="error">{errors.role_id}</p>
-          )}
-        </div>
-        <div className="field">
-          <Field type="password" name="password" placeholder="Password" />
-          {touched.password && errors.password && (
-            <p className="error">{errors.password}</p>
-          )}
-        </div>
+        <Field component="select" name="role_id">
+          <option>Select a Role</option>
+          <option value={1}>Admin</option>
+          <option value={2}>Manager</option>
+          <option value={3}>Regular User</option>
+        </Field>
+        {touched.role_id && errors.role_id && (
+          <p className="error">{errors.role_id}</p>
+        )}
+
+        <Field type="password" name="password" placeholder="Password" />
+        {touched.password && errors.password && (
+          <p className="error">{errors.password}</p>
+        )}
+
         <button type="submit">Submit</button>
       </Form>
     </div>

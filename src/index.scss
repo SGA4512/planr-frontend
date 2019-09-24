@@ -36,8 +36,35 @@ button {
   outline: none;
 }
 
+.form-container {
+  max-width: 400px;
+  border: 1px solid #14586b;
+  margin: 0 auto;
+  border-radius: 10px;
+
+  h1 {
+    font-size: 2rem;
+    padding: 10px;
+  }
+
+  input {
+    width: 75%;
+    margin: 20px 0;
+  }
+
+  button {
+    padding: 10px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #14586b;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px 0 30px;
+    width: 50%;
+  }
+}
+
 @import "./components/HeaderNav/HeaderNav.scss";
-@import "./pages/Login/LoginForm.scss";
 @import "./pages/EventsList/scenes/EventsList.scss";
 @import "./pages/Event/scenes/Event.scss";
 @import "./pages/Event/components/ShoppingList/ShoppingList.scss";
