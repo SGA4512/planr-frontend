@@ -1,0 +1,63 @@
+.event-page-card {
+  // padding: $padding-top-for-navbar;
+  width: 90%;
+  background-color: white;
+  border-radius: 5px;
+  margin: 0 auto;
+
+  #budget {
+    border-radius: 5px;
+    background-color: #87cf69;
+    padding: 3px 10px;
+    color: white;
+  }
+
+  p span {
+    font-weight: 900;
+  }
+
+  h2 {
+    font-family: "Lobster", sans-serif;
+    font-size: 3rem;
+  }
+
+  .event-info-and-buttons {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+  }
+
+  .event-info {
+    text-align: left;
+  }
+
+  .event-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .event-button {
+      border: none;
+      padding: 10px;
+      background-color: lighten($main-color, 60%);
+      border-radius: 5px;
+      margin-left: 5px;
+      margin-right: 5px;
+      transition: all 0.8s ease;
+
+      &:hover {
+        cursor: pointer;
+        background-color: lighten($main-color, 50%);
+      }
+
+      &:disabled {
+        background-color: lightgray;
+
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
