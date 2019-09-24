@@ -24,7 +24,7 @@ const RegistrationForm = ({
   }, [status, setUser, props.history]);
 
   return (
-    <div className="form-container-register">
+    <div className="form-container">
       <h1>Sign Up</h1>
       <Form>
         <div className="field">

@@ -22,11 +22,22 @@ body,
   color: #36393f;
 }
 
-// import scss components in logical order
+// form styles
+input {
+  outline: none;
+  padding: 10px 20px;
+  border: none;
+  background: #f4f7f8;
+  margin: 5px auto;
+  border-radius: 8px;
+}
+
+button {
+  outline: none;
+}
 
 @import "./components/HeaderNav/HeaderNav.scss";
-@import "./pages/Event/components/ShoppingList/ShoppingList.scss";
-@import "./pages/EventsList/scenes/EventsList.scss";
-@import "./pages/Register/RegisterForm.scss";
 @import "./pages/Login/LoginForm.scss";
+@import "./pages/EventsList/scenes/EventsList.scss";
 @import "./pages/Event/scenes/Event.scss";
+@import "./pages/Event/components/ShoppingList/ShoppingList.scss";
