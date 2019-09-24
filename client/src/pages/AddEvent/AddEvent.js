@@ -14,14 +14,15 @@ const AddEvent = props => {
     event_location: '',
     event_start: '',
     event_end: '',
-    event_budget: ''
+    event_budget: '',
+    
   })
 
   useEffect(() => {
     axios
-      .get(`https://egge-corporate-ep.herokuapp.com/api/events`)
+      .get(`https://egge-corporate-ep.herokuapp.com/api/events/`)
 
-      .then(res => setEvents(res.data))
+      .then(res => console.log(res.data))
       .catch(err => console.log(err))
   }, [])
 
