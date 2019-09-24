@@ -38,7 +38,6 @@ const ShoppingList = ({ shoppingList, budget, eventId }) => {
       .filter(item => item.item_complete)
       .reduce((acc, item) => acc + Number(item.item_cost), 0);
     setPurchasedItemsCost(temp);
-    console.log(totalCost);
   }, [shoppingListItems]);
 
   const editListItem = item => {

@@ -5,9 +5,6 @@ import * as api from "../../../services/api";
 import moment from "moment";
 import UserContext from "../../../contexts/UserContext";
 
-// conditional rendering based on localStorage key (set buttons to active/inactive)
-// axiosWithAuth GET event info
-
 const Event = props => {
   const { user, setUser, isAdmin } = useContext(UserContext);
 
@@ -18,12 +15,11 @@ const Event = props => {
   // Comment out to use dummy dummy instead API endpoints
   const [event, setEvent] = useState({ items: [] });
   const eventId = props.match.params.id;
-  // console.log("EVENT ID", eventId);
+
   useEffect(() => {
     api
       .getEvent(eventId)
       .then(res => {
-        // console.log("GET", res.data);
         setEvent(res.data);
       })
       .catch(err => console.log(err));
@@ -32,8 +28,6 @@ const Event = props => {
   const startDate = moment(event.event_start).format("MMMM Do, YYYY");
   const endDate = moment(event.event_end).format("MMMM Do, YYYY");
   const timeTilEvent = moment(event.event_start).fromNow();
-
-  // console.log(timeTilEvent);
 
   const deleteEvent = e => {
     e.preventDefault();
@@ -93,10 +87,6 @@ const Event = props => {
         eventId={eventId}
         budget={event.event_budget}
       />
-      {/* <ShoppingList
-        shoppingList={event.shopping_list}
-        budget={event.event_budget}
-      /> */}
     </div>
   );
 };

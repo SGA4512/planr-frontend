@@ -4,12 +4,13 @@ import { Card, Icon, Statistic, Progress, Spin } from "antd";
 const Expenditures = props => {
   const { totalCost, purchasedItemsCost, budget } = props;
   const [percent, setPercent] = useState(0);
+  const [hasNoCost, setHasNoCost] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      setPercent(Math.floor((100 * purchasedItemsCost) / budget));
-    }, 1000);
+    setPercent(Math.floor((100 * purchasedItemsCost) / budget));
+    setHasNoCost(true);
   }, [totalCost, budget, purchasedItemsCost]);
+  console.log(hasNoCost);
   const percentOfBudget = Math.floor((100 * purchasedItemsCost) / budget);
 
   return (
@@ -43,7 +44,7 @@ const Expenditures = props => {
       </div>
       <div className="budget-stats">
         <Card className="stat">
-          {!totalCost ? (
+          {!hasNoCost ? (
             <Spin />
           ) : (
             <Statistic
@@ -56,7 +57,7 @@ const Expenditures = props => {
           )}
         </Card>
         <Card className="stat">
-          {!totalCost ? (
+          {!hasNoCost ? (
             <Spin />
           ) : (
             <Statistic
@@ -69,7 +70,7 @@ const Expenditures = props => {
           )}
         </Card>
         <Card className="stat">
-          {!totalCost ? (
+          {!hasNoCost ? (
             <Spin />
           ) : budget - purchasedItemsCost < 0 ? (
             <Statistic
