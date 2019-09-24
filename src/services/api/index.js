@@ -61,6 +61,10 @@ export function refresh() {
   return axios.get(`${apiUrl}/refresh`);
 }
 
+export function login(values) {
+  return axios.post(`${apiUrl}`, values);
+}
+
 // EMULATE A PROMISE
 // export function getEvent() {
 //   return axios.get(`${apiUrl}/event`);

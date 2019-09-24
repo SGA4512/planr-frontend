@@ -1,10 +1,9 @@
 import React, { useEffect, useContext } from "react";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
+import * as api from "../../services/api";
 import "./LoginForm.scss";
 import UserContext from "../../contexts/UserContext.js";
-// axios post action
 
 const LoginForm = ({
   errors,
@@ -30,11 +29,8 @@ const LoginForm = ({
     <div className="form-container">
       <h1>Sign In</h1>
       <Form>
-        {/* name */}
         <Field type="text" name="username" placeholder="Userame" />
         {touched.name && errors.name && <p className="error">{errors.name}</p>}
-
-        {/* password */}
         <Field type="password" name="password" placeholder="Password" />
         {touched.password && errors.password && (
           <p className="error">{errors.password}</p>
@@ -44,7 +40,7 @@ const LoginForm = ({
     </div>
   );
 };
-// using formik
+
 const FormikLoginForm = withFormik({
   // making sure each prop has a default value if given value is undefined
   mapPropsToValues({ username, password, email }) {
@@ -62,12 +58,10 @@ const FormikLoginForm = withFormik({
 
   // update values and set status
   handleSubmit(values, { resetForm, props, setStatus }) {
-    console.log("values, props", values, props);
-
-    axios
-      .post("https://egge-corporate-ep.herokuapp.com/api/login", values)
+    // console.log("values, props", values, props);
+    api
+      .login(values)
       .then(response => {
-        console.log(response);
         console.log("we in there");
         setStatus(response.data);
       })
@@ -76,6 +70,6 @@ const FormikLoginForm = withFormik({
       });
     resetForm();
   }
-})(LoginForm); // currying functions
+})(LoginForm);
 
 export default FormikLoginForm;

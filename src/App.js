@@ -7,7 +7,6 @@ import EditPage from "./pages/AddEvent/EditPage";
 import Event from "./pages/Event/scenes/Event";
 import LoginForm from "./pages/Login/LoginForm";
 import HeaderNav from "./components/HeaderNav/HeaderNav";
-import Footer from "./components/Footer";
 import UserContext from "./contexts/UserContext";
 import { refresh } from "./services/api";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
@@ -39,7 +38,6 @@ function App() {
         <ProtectedRoute path="/event/:id" component={Event} />
         <ProtectedRoute path="/addevent" component={AddEvent} />
         <ProtectedRoute path="/editpage/:id" component={EditPage} />
-        <Footer />
       </div>
     </UserContext.Provider>
   );

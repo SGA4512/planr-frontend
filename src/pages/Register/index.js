@@ -1,9 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
+import * as api from "../../services/api";
 import UserContext from "../../contexts/UserContext.js";
-// axios post action
 
 const RegistrationForm = ({
   errors,
@@ -13,7 +12,6 @@ const RegistrationForm = ({
   status,
   ...props
 }) => {
-  // hook keeps track of login information
   const { setUser } = useContext(UserContext);
 
   // update login if change has occured
@@ -24,14 +22,11 @@ const RegistrationForm = ({
     }
   }, [status]);
 
-  console.log("this is values", values);
   return (
     <div className="form-container-register">
-      {/* <Paper > */}
       <h1>Sign Up</h1>
       <Form>
         <div className="field">
-          {/* username */}
           <Field type="text" name="username" placeholder="Username" />
           {touched.username && errors.username && (
             <p className="error">{errors.username}</p>
@@ -39,7 +34,6 @@ const RegistrationForm = ({
         </div>
 
         <div className="field">
-          {/* email */}
           <Field type="text" name="email" placeholder="Email" />
           {touched.email && errors.email && (
             <p className="error">{errors.email}</p>
@@ -47,12 +41,11 @@ const RegistrationForm = ({
         </div>
 
         <div className="field">
-          {/* role */}
           <Field component="select" name="role_id">
             <option>Select a Role</option>
-            <option value={1}>Marketing</option>
-            <option value={2}>Back-End</option>
-            <option value={3}>Front-End</option>
+            <option value={1}>Admin</option>
+            <option value={2}>Manager</option>
+            <option value={3}>Regular User</option>
           </Field>
 
           {touched.role_id && errors.role_id && (
@@ -95,12 +88,11 @@ const FormikRegistrationForm = withFormik({
 
   // update values and set status
   handleSubmit(values, { resetForm, props, setStatus }) {
-    console.log("values, props", values, props);
+    // console.log("values, props", values, props);
 
-    axios
-      .post("https://egge-corporate-ep.herokuapp.com/api/register", values)
+    api
+      .login(values)
       .then(response => {
-        console.log(response);
         setStatus(response.data);
       })
       .catch(error => {
@@ -108,6 +100,6 @@ const FormikRegistrationForm = withFormik({
       });
     resetForm();
   }
-})(RegistrationForm); // currying functions
+})(RegistrationForm);
 
 export default FormikRegistrationForm;

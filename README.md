@@ -1,6 +1,30 @@
-# Corporate Event Planner
+# Planr - Front End
 
-### Style Guide
+---
+
+- [Front-end Repo]()
+- [Back-end Repo]()
+
+---
+
+Deployed Frontend (to be replaced): [https://corporate-event-planr.netlify.com](https://corporate-event-planr.netlify.com)
+
+Planr is a full-stack web application build during a "build week" by Lambda School students. Planr provides a web application that allows a user to create/save events in their profile as well as add various details about the event. Once a user adds an event, they are able to manage shopping list items and track the cost of those items against an allotted event budget.
+
+## Built with
+
+---
+
+- React
+- React Router
+- Ant design styling library
+- SASS
+- Formik & Yup
+- Moment.js
+
+---
+
+### Style Guide for development
 
 - 2 spaces for indentation for JS and CSS (Prettier extension)
 - Components should be written in PascalCase.
