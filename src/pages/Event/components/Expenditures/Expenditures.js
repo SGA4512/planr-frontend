@@ -7,10 +7,12 @@ const Expenditures = props => {
   const [hasNoCost, setHasNoCost] = useState(false);
 
   useEffect(() => {
-    setPercent(Math.floor((100 * purchasedItemsCost) / budget));
-    setHasNoCost(true);
+    setTimeout(() => {
+      setPercent(Math.floor((100 * purchasedItemsCost) / budget));
+      setHasNoCost(true);
+    }, 1000);
   }, [totalCost, budget, purchasedItemsCost]);
-  console.log(hasNoCost);
+
   const percentOfBudget = Math.floor((100 * purchasedItemsCost) / budget);
 
   return (
