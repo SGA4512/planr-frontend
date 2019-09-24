@@ -37,7 +37,7 @@ button {
 }
 
 .form-container {
-  max-width: 400px;
+  max-width: 500px;
   border: 1px solid #14586b;
   margin: 0 auto;
   border-radius: 10px;
@@ -48,8 +48,9 @@ button {
   }
 
   input {
+    display: block;
     width: 75%;
-    margin: 20px 0;
+    margin: 20px auto;
   }
 
   button {

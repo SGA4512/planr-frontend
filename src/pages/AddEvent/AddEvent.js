@@ -34,7 +34,7 @@ const AddEvent = props => {
   };
 
   return (
-    <div className=".form-container">
+    <div className="form-container">
       <h1>Add Event</h1>
       <form onSubmit={handleSubmit}>
         <label>Event Name</label>

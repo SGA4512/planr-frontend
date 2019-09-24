@@ -41,9 +41,9 @@ const EditEvent = props => {
   };
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleEdit}>
-        <h2>Edit Event</h2>
+        <h1>Edit Event</h1>
         <label>
           Event name
           <input
