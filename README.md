@@ -9,6 +9,8 @@
 
 Deployed Frontend (to be replaced): [https://corporate-event-planr.netlify.com](https://corporate-event-planr.netlify.com)
 
+- Log in with username `super` & password `abcd1234`
+
 Planr is a full-stack web application build during a "build week" by Lambda School students. Planr provides a web application that allows a user to create/save events in their profile as well as add various details about the event. Once a user adds an event, they are able to manage shopping list items and track the cost of those items against an allotted event budget.
 
 ## Built with

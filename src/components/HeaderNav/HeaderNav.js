@@ -29,14 +29,14 @@ const HeaderNav = props => {
         {!user ? (
           <>
             <NavLink to="/register">Register</NavLink>
-            <NavLink to="/login">Login</NavLink>)
+            <NavLink to="/login">Sign in</NavLink>)
           </>
         ) : (
           <>
             <NavLink to="/">Your Events</NavLink>
             {/* {isAdmin() ? <NavLink to="/addevent">Create Event</NavLink> : null} */}
             <NavLink to="/addevent">Create Event</NavLink>
-            <button onClick={logout}>LOGOUT</button>
+            <button onClick={logout}>Sign out</button>
           </>
         )}
       </div>

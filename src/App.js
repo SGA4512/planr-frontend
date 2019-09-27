@@ -20,15 +20,15 @@ function App() {
     return user && [1, 2].includes(user.role_id);
   };
 
-  useEffect(() => {
-    refresh()
-      .then(res => {
-        setUser(res.data[0]);
-      })
-      .catch(err => {
-        setUser(false);
-      });
-  }, []);
+  // useEffect(() => {
+  //   refresh()
+  //     .then(res => {
+  //       setUser(res.data[0]);
+  //     })
+  //     .catch(err => {
+  //       setUser(false);
+  //     });
+  // }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser, isAdmin }}>

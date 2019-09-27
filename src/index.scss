@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
 
 $raisin-black: #212227;
 $columbia-blue: #c2dfe3;
@@ -22,16 +21,6 @@ body,
   color: #36393f;
 }
 
-// form styles
-input {
-  outline: none;
-  padding: 10px 20px;
-  border: none;
-  background: #f4f7f8;
-  margin: 5px auto;
-  border-radius: 8px;
-}
-
 button {
   outline: none;
 }
@@ -51,6 +40,11 @@ button {
     display: block;
     width: 75%;
     margin: 20px auto;
+    outline: none;
+    padding: 10px 20px;
+    border: none;
+    background: #f4f7f8;
+    border-radius: 8px;
   }
 
   button {

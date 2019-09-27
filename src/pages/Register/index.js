@@ -27,10 +27,8 @@ const RegistrationForm = ({
     <div className="form-container">
       <h1>Sign Up</h1>
       <Form>
-        <Field type="text" name="username" placeholder="Username" />
-        {touched.username && errors.username && (
-          <p className="error">{errors.username}</p>
-        )}
+        <Field type="text" name="name" placeholder="Name" />
+        {touched.name && errors.name && <p className="error">{errors.name}</p>}
 
         <Field type="text" name="email" placeholder="Email" />
         {touched.email && errors.email && (
@@ -60,9 +58,9 @@ const RegistrationForm = ({
 // using formik
 const FormikRegistrationForm = withFormik({
   // making sure each prop has a default value if given value is undefined
-  mapPropsToValues({ username, password, email, role_id }) {
+  mapPropsToValues({ name, password, email, role_id }) {
     return {
-      username: username || "",
+      name: name || "",
       email: email || "",
       role_id: role_id || "",
       password: password || ""
@@ -71,7 +69,7 @@ const FormikRegistrationForm = withFormik({
 
   // use yup to enforce input requirements
   validationSchema: Yup.object().shape({
-    username: Yup.string().required("Username is required."),
+    name: Yup.string().required("Name is required."),
     email: Yup.string().required("Email is required."),
     role_id: Yup.string().required("Role is required."),
     password: Yup.string().required("Password is required")

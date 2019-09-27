@@ -2,7 +2,9 @@ import React, { useEffect, useContext } from "react";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 import * as api from "../../services/api";
+import axios from "axios";
 import UserContext from "../../contexts/UserContext.js";
+import { axiosWithAuth } from "../../services/axiosWithAuth";
 
 const LoginForm = ({
   errors,
@@ -26,10 +28,12 @@ const LoginForm = ({
 
   return (
     <div className="form-container">
-      <h1>Log In</h1>
+      <h1>Sign In</h1>
       <Form>
-        <Field type="text" name="username" placeholder="Userame" />
-        {touched.name && errors.name && <p className="error">{errors.name}</p>}
+        <Field type="text" name="email" placeholder="Email" />
+        {touched.email && errors.email && (
+          <p className="error">{errors.email}</p>
+        )}
         <Field type="password" name="password" placeholder="Password" />
         {touched.password && errors.password && (
           <p className="error">{errors.password}</p>
@@ -42,27 +46,34 @@ const LoginForm = ({
 
 const FormikLoginForm = withFormik({
   // making sure each prop has a default value if given value is undefined
-  mapPropsToValues({ username, password, email }) {
+  mapPropsToValues({ email, password }) {
     return {
-      username: username || "",
+      email: email || "",
       password: password || ""
     };
   },
 
   // use yup to enforce input requirements
   validationSchema: Yup.object().shape({
-    username: Yup.string().required("Username is required."),
+    email: Yup.string().required("Email is required."),
     password: Yup.string().required("Password is required.")
   }),
 
   // update values and set status
   handleSubmit(values, { resetForm, props, setStatus }) {
-    // console.log("values, props", values, props);
-    api
-      .login(values)
-      .then(response => {
+    console.log("values, props", values, props);
+    // api
+    //   .login(values)
+    axios
+      // .post(`http://localhost:8000/login`, values)
+      .post(
+        `https://corporate-event-planner-be.herokuapp.com/api/users/login`,
+        values
+      )
+      .then(res => {
         console.log("we in there");
-        setStatus(response.data);
+        localStorage.setItem("token", res.data.token);
+        setStatus(res.data);
       })
       .catch(error => {
         console.log(error);
