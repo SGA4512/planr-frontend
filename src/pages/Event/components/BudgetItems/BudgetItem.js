@@ -1,6 +1,6 @@
 import React from "react";
 
-const ShoppingListItem = ({
+const BudgetItem = ({
   listItem,
   editListItem,
   putListItem,
@@ -11,6 +11,7 @@ const ShoppingListItem = ({
 }) => {
   const handleChange = e => {
     setListItemToEdit({ ...listItemToEdit, [e.target.name]: e.target.value });
+    console.log(listItemToEdit);
   };
 
   const saveEdit = e => {
@@ -27,7 +28,7 @@ const ShoppingListItem = ({
             <input
               type="text"
               name="item_name"
-              value={listItemToEdit.item_name}
+              value={listItemToEdit.name}
               onChange={handleChange}
             />
           </label>
@@ -36,7 +37,7 @@ const ShoppingListItem = ({
             <input
               type="number"
               name="item_cost"
-              value={listItemToEdit.item_cost}
+              value={listItemToEdit.cost}
               onChange={handleChange}
             />
             <span>.00</span>
@@ -49,15 +50,13 @@ const ShoppingListItem = ({
         </form>
       ) : (
         <div
-          className={`item-container${
-            listItem.item_complete ? "-completed" : ""
-          }`}
+          className={`item-container${listItem.completed ? "-completed" : ""}`}
         >
           <div className="item-text-container">
-            <p onClick={() => editListItem(listItem)}>{listItem.item_name}</p>
+            <p onClick={() => editListItem(listItem)}>{listItem.name}</p>
           </div>
           <div className="item-text-container">
-            <p onClick={() => editListItem(listItem)}> ${listItem.item_cost}</p>
+            <p onClick={() => editListItem(listItem)}> ${listItem.cost}</p>
           </div>
           <div className="item-buttons-container">
             <span onClick={() => editListItem(listItem)}>edit</span>
@@ -70,4 +69,4 @@ const ShoppingListItem = ({
   );
 };
 
-export default ShoppingListItem;
+export default BudgetItem;

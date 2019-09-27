@@ -7,7 +7,7 @@ import App from "./App";
 import axios from "axios";
 
 // send cookies with requests by default
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true; // BREAKS WHEN NOT USING COOKIES
 
 ReactDOM.render(
   <Router>

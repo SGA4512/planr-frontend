@@ -1,11 +1,11 @@
 .shopping-list-container {
   width: 90%;
-  margin: 20px auto;
+  margin: 10px auto;
   display: flex;
   flex-direction: column;
   box-shadow: 0 5px 6px -6px $raisin-black;
   border-radius: 5px;
-  padding: 2rem;
+  padding: 1rem;
   background-color: lighten($columbia-blue, 11%);
 
   h4 {
@@ -36,7 +36,8 @@
     align-items: center;
 
     p {
-      margin-bottom: 3rem;
+      margin-top: 0px;
+      margin-bottom: 1rem;
     }
 
     .progress-bar-container {
@@ -66,7 +67,7 @@
     background-color: darken($columbia-blue, 10%);
     // background-color: lighten($gray-blue, 20%);
     color: #f9f9f9;
-    padding: 0px 20px;
+    padding: 0px 10px;
 
     input {
       border-bottom: 2px solid #f9f9f9;
@@ -108,9 +109,8 @@
   form,
   .item-container,
   .item-container-completed {
-    width: 90%;
+    width: 95%;
     height: 60px;
-    padding: 2px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -122,10 +122,11 @@
 
     .item-text-container,
     input {
-      width: 8rem;
+      width: 11rem;
       font-size: 1rem;
       text-align: left;
       background-color: transparent;
+      vertical-align: center;
     }
 
     input {

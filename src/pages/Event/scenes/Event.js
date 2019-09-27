@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import ShoppingList from "../components/ShoppingList/ShoppingList";
+import BudgetItems from "../components/BudgetItems/BudgetItems";
 // import { allEvents } from "../../../services/data";
 import * as api from "../../../services/api";
 import moment from "moment";
@@ -8,12 +8,7 @@ import UserContext from "../../../contexts/UserContext";
 const Event = props => {
   const { isAdmin } = useContext(UserContext);
 
-  // Uncomment to use dummy data instead of API endpoints
-  // const { eventId } = props.match.params.id;
-  // const [event, setEvent] = useState(allEvents[props.match.params.id - 1]); // hard coded to work with dummy array
-
-  // Comment out to use dummy dummy instead API endpoints
-  const [event, setEvent] = useState({ items: [] });
+  const [event, setEvent] = useState({ budgetItems: [] });
   const eventId = props.match.params.id;
 
   useEffect(() => {
@@ -21,19 +16,21 @@ const Event = props => {
       .getEvent(eventId)
       .then(res => {
         setEvent(res.data);
+        // console.log(event); // why is this still the same as prior log?
       })
       .catch(err => console.log(err));
   }, []);
 
-  const startDate = moment(event.event_start).format("MMMM Do, YYYY");
-  const endDate = moment(event.event_end).format("MMMM Do, YYYY");
-  // const timeTilEvent = moment(event.event_start).fromNow();
+  // console.log(event.budgetItems);
+
+  const startDate = moment(event.start_date).format("MMMM Do, YYYY");
+  const endDate = moment(event.end_date).format("MMMM Do, YYYY");
 
   const deleteEvent = e => {
     e.preventDefault();
     api
       .deleteEvent(eventId)
-      .then(res => {
+      .then(_ => {
         props.history.push("/");
       })
       .catch(err => console.log(err.response));
@@ -46,22 +43,22 @@ const Event = props => {
 
   return (
     <div className="event-page-card">
-      <h2>{event.event_title}</h2>
+      <h2>{event.name}</h2>
       <div className="event-info-and-buttons">
         <div className="event-info">
           <p>
             <span>Description: </span>
-            {event.event_description}
+            {event.description}
           </p>
           <p>
             <span>Date: </span> {startDate} to {endDate}
           </p>
           <p>
-            <span>Location: </span> {event.event_location}
+            <span>Location: </span> {event.location}
           </p>
           <p>
             <span>Total Budget: </span>
-            <span id="budget">${event.event_budget}</span>
+            <span id="budget">${event.budget}</span>
           </p>
         </div>
         <div className="event-buttons-container">
@@ -82,10 +79,10 @@ const Event = props => {
         </div>
       </div>
 
-      <ShoppingList
-        shoppingList={event.items}
+      <BudgetItems
+        budgetItems={event.budgetItems}
         eventId={eventId}
-        budget={event.event_budget}
+        budget={event.budget}
       />
     </div>
   );

@@ -1,7 +1,7 @@
 import axios from "axios";
-import { axiosWithAuth, axiosWithCors } from "../axiosWithAuth.js";
+import { axiosWithAuth } from "../axiosWithAuth.js";
 
-const apiUrl = "http://localhost:8000";
+const apiUrl = "http://localhost:8000/api";
 // const apiUrl = "https://egge-corporate-ep.herokuapp.com/api";
 // const apiUrl = "https://planr-backend.herokuapp.com/api";
 
@@ -34,36 +34,36 @@ export function editEvent(id, input) {
 // SHOPPING LIST ======================================================
 // Read all
 export function getListItems() {
-  return axiosWithAuth().get(`${apiUrl}/lists/`);
+  return axiosWithAuth().get(`${apiUrl}/budget-items/`);
 }
 
 // Read
 export function getListItem(listId) {
-  return axiosWithAuth().get(`${apiUrl}/lists/${listId}`);
+  return axiosWithAuth().get(`${apiUrl}/budget-items/${listId}`);
 }
 
 // Create
 export function addListItem(listItem) {
-  return axiosWithAuth().post(`${apiUrl}/lists/`, listItem);
+  return axiosWithAuth().post(`${apiUrl}/budget-items/`, listItem);
 }
 
 // Edit
 export function editListItem(listItem) {
-  return axiosWithAuth().put(`${apiUrl}/lists/${listItem.id}`, listItem);
+  return axiosWithAuth().put(`${apiUrl}/budget-items/${listItem.id}`, listItem);
 }
 
 // Delete
 export function deleteListItem(listId) {
-  return axiosWithAuth().delete(`${apiUrl}/lists/${listId}`);
+  return axiosWithAuth().delete(`${apiUrl}/budget-items/${listId}`);
 }
 
 // USERS ======================================================
 export function refresh() {
-  return axiosWithCors().get(`${apiUrl}/refresh`);
+  return axios.get(`${apiUrl}/refresh`);
 }
 
 export function login(values) {
-  return axiosWithCors().post(`${apiUrl}/login`, values);
+  return axios.post(`${apiUrl}/users/login`, values);
 }
 
 export function logout() {
@@ -71,7 +71,7 @@ export function logout() {
 }
 
 export function register(values) {
-  return axios.post(`${apiUrl}/register`, values);
+  return axios.post(`${apiUrl}/users/register`, values);
 }
 
 // EMULATE A PROMISE

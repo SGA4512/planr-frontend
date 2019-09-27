@@ -3,13 +3,14 @@ import { notification } from "antd";
 
 const initialEditingListItem = {
   event_id: "",
-  item_name: "",
-  item_cost: 0,
-  item_complete: false
-  // item_vendor: ""
+  name: "",
+  quantity: 1,
+  cost: 0,
+  completed: false
+  // vendor_id: null
 };
 
-const ShoppingListForm = ({ addListItem, eventId }) => {
+const BudgetItemsForm = ({ addListItem, eventId }) => {
   const [input, setInput] = useState(initialEditingListItem);
 
   const handleChange = e => {
@@ -26,12 +27,11 @@ const ShoppingListForm = ({ addListItem, eventId }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (input.item_name === "") {
+    if (input.name === "") {
       notification.open({
         message: "Please enter the budget item name"
       });
     } else {
-      // POST request
       addListItem(input, eventId);
       setInput(initialEditingListItem);
     }
@@ -41,8 +41,8 @@ const ShoppingListForm = ({ addListItem, eventId }) => {
     <>
       <form onSubmit={handleSubmit} className="add-item-form">
         <input
-          name="item_name"
-          value={input.item_name}
+          name="name"
+          value={input.name}
           onChange={handleChange}
           type="text"
           placeholder="item name"
@@ -50,20 +50,20 @@ const ShoppingListForm = ({ addListItem, eventId }) => {
         <label>
           $
           <input
-            name="item_cost"
-            value={input.item_cost}
+            name="cost"
+            value={input.cost}
             onChange={handleChange}
             type="number"
-            placeholder="item cost"
+            placeholder="cost"
           />
           <span>.00</span>
         </label>
         <label>
           <input
-            name="item_complete"
+            name="completed"
             onChange={handleChange}
             type="checkbox"
-            checked={input.item_complete}
+            checked={input.completed}
           />
           bought?
         </label>
@@ -74,4 +74,4 @@ const ShoppingListForm = ({ addListItem, eventId }) => {
     </>
   );
 };
-export default ShoppingListForm;
+export default BudgetItemsForm;

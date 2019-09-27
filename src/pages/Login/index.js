@@ -2,9 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 import * as api from "../../services/api";
-import axios from "axios";
 import UserContext from "../../contexts/UserContext.js";
-import { axiosWithAuth } from "../../services/axiosWithAuth";
 
 const LoginForm = ({
   errors,
@@ -61,21 +59,16 @@ const FormikLoginForm = withFormik({
 
   // update values and set status
   handleSubmit(values, { resetForm, props, setStatus }) {
-    console.log("values, props", values, props);
-    // api
-    //   .login(values)
-    axios
-      // .post(`http://localhost:8000/login`, values)
-      .post(
-        `https://corporate-event-planner-be.herokuapp.com/api/users/login`,
-        values
-      )
+    // console.log("values, props", values, props);
+    api
+      .login(values)
       .then(res => {
         console.log("we in there");
         localStorage.setItem("token", res.data.token);
         setStatus(res.data);
       })
       .catch(error => {
+        console.log("fack");
         console.log(error);
       });
     resetForm();

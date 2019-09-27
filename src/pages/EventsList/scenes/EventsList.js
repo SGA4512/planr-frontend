@@ -18,7 +18,7 @@ const EventsList = props => {
   useEffect(() => {
     getEvents()
       .then(res => {
-        // console.log(res.data);
+        console.log(res.data);
         setEventsList(res.data);
       })
       .catch(err => console.log(err));
@@ -63,25 +63,25 @@ const EventsList = props => {
         <Timeline mode="alternate">
           {eventsList
             .filter(event =>
-              event.event_title.toLowerCase().includes(searchText.toLowerCase())
+              event.name.toLowerCase().includes(searchText.toLowerCase())
             )
             .map(event => {
-              const startDate = moment(event.event_start).format(
+              const startDate = moment(event.start_date).format(
                 "MMMM Do, YYYY"
               );
-              const endDate = moment(event.event_end).format("MMMM Do, YYYY");
-              const relativeDate = moment(event.event_start).fromNow();
+              const endDate = moment(event.end_date).format("MMMM Do, YYYY");
+              const relativeDate = moment(event.start_date).fromNow();
 
               return (
                 <Timeline.Item>
                   <div className="event-card">
                     <p className="relative-date">{relativeDate}</p>
-                    <h3>{event.event_title}</h3>
-                    <p>Budget: ${event.event_budget}</p>
+                    <h3>{event.name}</h3>
+                    <p>Budget: ${event.budget}</p>
                     <p>
                       <span>{startDate}</span> through <span>{endDate}</span>
                     </p>
-                    <p>Location: {event.event_location}</p>
+                    <p>Location: {event.location}</p>
                     <Link
                       to={`/event/${event.id}`}
                       className="view-event-button"
