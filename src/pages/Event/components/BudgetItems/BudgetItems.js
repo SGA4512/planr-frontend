@@ -24,6 +24,8 @@ const BudgetItems = ({ budgetItems, budget, eventId }) => {
     setBudgetItemsList(budgetItems);
   }, [budgetItemsList]);
 
+  console.log(budgetItemsList);
+
   // ALL ITEMS COST
   useEffect(() => {
     let temp = budgetItemsList.reduce(
@@ -56,28 +58,28 @@ const BudgetItems = ({ budgetItems, budget, eventId }) => {
       .catch(err => console.log(err));
   };
 
+  // PUT - EDIT
   const putListItem = () => {
     api
       .editListItem(listItemToEdit)
       .then(res => {
         console.log(res.data);
+        console.log("budgetItemsList", budgetItemsList);
         let temp = budgetItemsList.map(item => {
           if (item.id === listItemToEdit.id) {
             return res.data;
           }
           return item;
         });
-        console.log("temp", temp);
         setBudgetItemsList(temp);
         setListItemToEdit(initialListItem);
       })
       .catch(err => console.log(err.response));
   };
 
-  // PUT
+  // PUT - TOGGLE
   const toggleListItem = listItem => {
     api
-      // .editListItem({ completed: !listItem.completed })
       .editListItem({
         completed: !listItem.completed,
         id: listItem.id
