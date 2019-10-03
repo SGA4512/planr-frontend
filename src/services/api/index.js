@@ -66,6 +66,7 @@ export function login(values) {
   return axios.post(`${apiUrl}/users/login`, values);
 }
 
+// with cookies/sessions
 export function logout() {
   return axios.get(`${apiUrl}/logout`);
 }

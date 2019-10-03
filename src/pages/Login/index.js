@@ -65,6 +65,7 @@ const FormikLoginForm = withFormik({
       .then(res => {
         console.log("we in there");
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user_id", res.data.user_id);
         setStatus(res.data);
       })
       .catch(error => {

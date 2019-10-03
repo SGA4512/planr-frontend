@@ -2,21 +2,21 @@ import React, { useState, useEffect } from "react";
 import * as api from "../../services/api";
 
 const emptyEvent = {
-  event_title: "",
-  event_description: "",
-  event_location: "",
-  event_start: "",
-  event_end: "",
-  event_budget: ""
+  name: "",
+  description: "",
+  location: "",
+  start_date: "",
+  end_date: "",
+  budget: ""
 };
 
 const AddEvent = props => {
-  const [events, setEvents] = useState([]);
   const [input, setInput] = useState(emptyEvent);
 
   const handleChange = e => {
     setInput({
       ...input,
+      created_by: Number(localStorage.getItem("user_id")),
       [e.target.name]: e.target.value
     });
   };
@@ -26,8 +26,7 @@ const AddEvent = props => {
     api
       .addEvent(input)
       .then(res => {
-        setEvents(res.data);
-        props.history.push(`/event/${res.data[0].id}`);
+        props.history.push(`/event/${res.data.id}`);
       })
       .catch(err => console.log(err));
     setInput(emptyEvent);
@@ -39,43 +38,43 @@ const AddEvent = props => {
       <form onSubmit={handleSubmit}>
         <label>Event Name</label>
         <input
-          name="event_title"
-          value={input.event_title}
+          name="name"
+          value={input.name}
           onChange={handleChange}
           type="text"
         />
         <label>Description</label>
         <input
-          name="event_description"
-          value={input.event_description}
+          name="description"
+          value={input.description}
           onChange={handleChange}
           type="text"
         />
         <label>Location</label>
         <input
-          name="event_location"
-          value={input.event_location}
+          name="location"
+          value={input.location}
           onChange={handleChange}
           type="text"
         />
         <label>Start Date</label>
         <input
-          name="event_start"
-          value={input.event_start}
+          name="start_date"
+          value={input.start_date}
           onChange={handleChange}
           type="date"
         />
         <label>End Date</label>
         <input
-          name="event_end"
-          value={input.event_end}
+          name="end_date"
+          value={input.end_date}
           onChange={handleChange}
           type="date"
         />
         <label>Total Budget</label>
         <input
-          name="event_budget"
-          value={input.event_budget}
+          name="budget"
+          value={input.budget}
           onChange={handleChange}
           type="number"
         />

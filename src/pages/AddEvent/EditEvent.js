@@ -3,22 +3,22 @@ import * as api from "../../services/api";
 
 const EditEvent = props => {
   const {
-    event_title,
-    event_description,
-    event_location,
-    event_start,
-    event_end,
-    event_budget,
+    name,
+    description,
+    location,
+    start_date,
+    end_date,
+    budget,
     id
   } = props.event;
 
   const [input, setInput] = useState({
-    event_title,
-    event_description,
-    event_location,
-    event_start,
-    event_end,
-    event_budget
+    name,
+    description,
+    location,
+    start_date,
+    end_date,
+    budget
   });
 
   const handleChange = e => {
@@ -47,8 +47,8 @@ const EditEvent = props => {
         <label>
           Event name
           <input
-            name="event_title"
-            value={input.event_title}
+            name="name"
+            value={input.name}
             onChange={handleChange}
             type="text"
           />
@@ -56,8 +56,8 @@ const EditEvent = props => {
         <label>
           Description
           <input
-            name="event_description"
-            value={input.event_description}
+            name="description"
+            value={input.description}
             onChange={handleChange}
             type="text"
             placeholder="Event Description"
@@ -66,8 +66,8 @@ const EditEvent = props => {
         <label>
           Location
           <input
-            name="event_location"
-            value={input.event_location}
+            name="location"
+            value={input.location}
             onChange={handleChange}
             type="text"
             placeholder="Event Location"
@@ -76,8 +76,8 @@ const EditEvent = props => {
         <label>
           Start date
           <input
-            name="event_start"
-            value={input.event_start}
+            name="start_date"
+            value={input.start_date}
             onChange={handleChange}
             type="date"
           />
@@ -86,8 +86,8 @@ const EditEvent = props => {
         <label>
           End date
           <input
-            name="event_end"
-            value={input.event_end}
+            name="end_date"
+            value={input.end_date}
             onChange={handleChange}
             type="date"
           />
@@ -95,8 +95,8 @@ const EditEvent = props => {
         <label>
           Total Budget
           <input
-            name="event_budget"
-            value={input.event_budget}
+            name="budget"
+            value={input.budget}
             onChange={handleChange}
             type="number"
           />

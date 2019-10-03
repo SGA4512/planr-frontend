@@ -9,7 +9,7 @@ const EditPage = props => {
 
   useEffect(() => {
     axios
-      .get(`https://egge-corporate-ep.herokuapp.com/api/events/${eventId}`)
+      .get(`http://localhost:8000/api/events/${eventId}`)
       .then(res => {
         setEvent(res.data);
         console.log(res.data);
