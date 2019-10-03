@@ -12,7 +12,6 @@ const EditPage = props => {
       .get(`http://localhost:8000/api/events/${eventId}`)
       .then(res => {
         setEvent(res.data);
-        console.log(res.data);
       })
       .catch(err => console.log(err));
   }, [eventId]);
@@ -23,7 +22,7 @@ const EditPage = props => {
 
   return (
     <div>
-      <EditEvent event={event} />
+      <EditEvent {...props} event={event} />
     </div>
   );
 };

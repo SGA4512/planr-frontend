@@ -4,7 +4,7 @@ import * as api from "../../services/api";
 import UserContext from "../../contexts/UserContext.js";
 
 const HeaderNav = props => {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser, isAdmin } = useContext(UserContext);
 
   // if using cookies/sessions on backend
   // const logout = () => {

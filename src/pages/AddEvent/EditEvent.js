@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as api from "../../services/api";
 
 const EditEvent = props => {
+  console.log("edit event props", props);
   const {
     name,
     description,
@@ -32,10 +33,9 @@ const EditEvent = props => {
     e.preventDefault();
     api
       .editEvent(id, input)
-      // axios
-      //   .put(`https://egge-corporate-ep.herokuapp.com/api/events/${id}`, input)
       .then(res => {
-        props.setEvents(res.data);
+        console.log(res);
+        props.history.push(`/event/${id}`);
       })
       .catch(err => console.log(err));
   };

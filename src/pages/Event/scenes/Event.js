@@ -65,14 +65,14 @@ const Event = props => {
           <button
             className="event-button"
             onClick={editEvent}
-            disabled={!isAdmin()}
+            // disabled={!isAdmin()}
           >
             Edit event
           </button>
           <button
             className="event-button"
             onClick={deleteEvent}
-            disabled={!isAdmin()}
+            // disabled={!isAdmin()}
           >
             Delete event
           </button>
