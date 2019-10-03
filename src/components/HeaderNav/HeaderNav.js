@@ -23,6 +23,7 @@ const HeaderNav = props => {
 
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("role_name");
     setUser(false);
     props.history.push("/login");
   };

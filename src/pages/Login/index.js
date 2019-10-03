@@ -15,7 +15,6 @@ const LoginForm = ({
   // hook keeps track of login information
   const { setUser } = useContext(UserContext);
 
-  /// const {setUser} = userContext(user);
   // update login if change has occured
   useEffect(() => {
     if (status) {
@@ -63,6 +62,7 @@ const FormikLoginForm = withFormik({
     api
       .login(values)
       .then(res => {
+        console.log("we in");
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("role_name", res.data.role_name);
         setStatus(res.data);

@@ -22,7 +22,7 @@ const BudgetItems = ({ budgetItems, budget, eventId }) => {
 
   useEffect(() => {
     setBudgetItemsList(budgetItems);
-  }, [budgetItemsList]);
+  }, [budgetItems]);
 
   console.log(budgetItemsList);
 
@@ -125,7 +125,7 @@ const BudgetItems = ({ budgetItems, budget, eventId }) => {
         eventId={eventId}
       />
       <div className="shopping-list-items-container">
-        {budgetItems.map(listItem => (
+        {budgetItemsList.map(listItem => (
           <BudgetItem
             key={listItem.id}
             putListItem={putListItem}

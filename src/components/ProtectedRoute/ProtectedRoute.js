@@ -9,6 +9,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
       {...rest}
       render={props => {
         // if (localStorage.getItem("token")) {
+        // if using cookies/sessions
         if (user) {
           return <Component {...props} />;
         }
