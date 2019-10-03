@@ -63,13 +63,12 @@ const FormikLoginForm = withFormik({
     api
       .login(values)
       .then(res => {
-        console.log("we in there");
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("user_id", res.data.user_id);
+        localStorage.setItem("role_id", res.data.role_id);
         setStatus(res.data);
       })
       .catch(error => {
-        console.log("fack");
         console.log(error);
       });
     resetForm();

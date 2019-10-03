@@ -7,7 +7,7 @@ const emptyEvent = {
   location: "",
   start_date: "",
   end_date: "",
-  budget: ""
+  budget: 0
 };
 
 const AddEvent = props => {
