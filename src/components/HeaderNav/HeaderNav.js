@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import { NavLink, Redirect } from "react-router-dom";
-import * as api from "../../services/api";
+import { NavLink } from "react-router-dom";
+// import * as api from "../../services/api";
 import UserContext from "../../contexts/UserContext.js";
 
 const HeaderNav = props => {
-  const { user, setUser, isAdmin } = useContext(UserContext);
+  // const { user, setUser, isAdmin } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   // if using cookies/sessions on backend
   // const logout = () => {

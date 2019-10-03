@@ -27,7 +27,7 @@ const BudgetItem = ({
           <label>
             <input
               type="text"
-              name="item_name"
+              name="name"
               value={listItemToEdit.name}
               onChange={handleChange}
             />
@@ -36,7 +36,7 @@ const BudgetItem = ({
             $
             <input
               type="number"
-              name="item_cost"
+              name="cost"
               value={listItemToEdit.cost}
               onChange={handleChange}
             />

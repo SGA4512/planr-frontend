@@ -59,18 +59,15 @@ const BudgetItems = ({ budgetItems, budget, eventId }) => {
   const putListItem = () => {
     api
       .editListItem(listItemToEdit)
-      // .editListItem({
-      //   id: listItemToEdit.id,
-      //   item_name: listItemToEdit.name,
-      //   cost: listItemToEdit.cost
-      // })
       .then(res => {
+        console.log(res.data);
         let temp = budgetItemsList.map(item => {
           if (item.id === listItemToEdit.id) {
             return res.data;
           }
           return item;
         });
+        console.log("temp", temp);
         setBudgetItemsList(temp);
         setListItemToEdit(initialListItem);
       })

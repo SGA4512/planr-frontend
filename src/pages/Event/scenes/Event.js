@@ -6,7 +6,7 @@ import moment from "moment";
 import UserContext from "../../../contexts/UserContext";
 
 const Event = props => {
-  const { isAdmin } = useContext(UserContext);
+  // const { isAdmin } = useContext(UserContext);
 
   const [event, setEvent] = useState({ budgetItems: [] });
   const eventId = props.match.params.id;
@@ -19,7 +19,7 @@ const Event = props => {
         // console.log(event); // why is this still the same as prior log?
       })
       .catch(err => console.log(err));
-  }, []);
+  }, [eventId]);
 
   // console.log(event.budgetItems);
 

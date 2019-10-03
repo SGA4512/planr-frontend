@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Route } from "react-router-dom";
 
 import HeaderNav from "./components/HeaderNav/HeaderNav";
@@ -11,7 +11,7 @@ import Event from "./pages/Event/scenes/Event";
 
 import UserContext from "./contexts/UserContext";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
-import { refresh } from "./services/api";
+// import { refresh } from "./services/api";
 
 function App() {
   const [user, setUser] = useState({});
