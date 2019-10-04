@@ -27,7 +27,7 @@ button {
 
 .form-container {
   max-width: 500px;
-  border: 1px solid #14586b;
+  border: 1px solid darken($columbia-blue, 20%);
   margin: 0 auto;
   border-radius: 10px;
 
@@ -51,7 +51,7 @@ button {
     padding: 10px;
     border-radius: 10px;
     border-style: none;
-    background-color: #14586b;
+    background-color: darken($columbia-blue, 20%);
     color: #fff;
     cursor: pointer;
     margin: 20px 0 30px;

@@ -3,6 +3,7 @@ import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 import * as api from "../../services/api";
 import UserContext from "../../contexts/UserContext.js";
+import { notification } from "antd";
 
 const LoginForm = ({
   errors,
@@ -36,6 +37,7 @@ const LoginForm = ({
           <p className="error">{errors.password}</p>
         )}
         <button type="submit">Submit</button>
+        <p>Demo with john@test.com (email) and test (password)</p>
       </Form>
     </div>
   );
@@ -62,13 +64,16 @@ const FormikLoginForm = withFormik({
     api
       .login(values)
       .then(res => {
-        console.log("we in");
+        console.log(res.data.message);
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("role_name", res.data.role_name);
         setStatus(res.data);
       })
       .catch(error => {
-        console.log(error);
+        console.log(error.message);
+        notification.open({
+          message: "Incorrect credentials."
+        });
       });
     resetForm();
   }

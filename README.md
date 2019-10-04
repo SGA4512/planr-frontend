@@ -2,8 +2,8 @@
 
 Planr is a full-stack web application that allows a user to create/save events in their profile as well as add various details about the event.
 
-- Deployed front-end (to be replaced): [https://corporate-event-planr.netlify.com](https://corporate-event-planr.netlify.com)
-  - Log in as an admin user with username `super` & password `abcd1234` (change this)
+- [Deployed front-end](https://planr-events.netlify.com/)
+  - Log in as an admin user with email `john@test.com` & password `test`
 - [Corresponding Back-end Repo](https://github.com/lilyhoratio/planr-backend)
 
 Features:

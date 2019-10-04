@@ -8,7 +8,7 @@
   padding: 1rem;
   background-color: lighten($columbia-blue, 11%);
 
-  h4 {
+  .budget-items-title {
     margin: 0 auto 10px;
     font-size: 1.4rem;
   }
@@ -26,7 +26,6 @@
       cursor: pointer;
       transition: all 0.3s ease;
       text-decoration: underline;
-      // transition: all 0.3s ease;
     }
   }
 
@@ -34,11 +33,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    p {
-      margin-top: 0px;
-      margin-bottom: 1rem;
-    }
 
     .progress-bar-container {
       margin-right: 20px;
@@ -63,26 +57,31 @@
     }
   }
 
+  // ADD ITEM =======================================================
   .add-item-form {
     background-color: darken($columbia-blue, 10%);
-    // background-color: lighten($gray-blue, 20%);
     color: #f9f9f9;
     padding: 0px 10px;
 
-    input {
+    input,
+    textarea {
       border-bottom: 2px solid #f9f9f9;
       font-size: 1.2rem;
+      color: #f9f9f9;
 
       &::placeholder {
         color: #f9f9f9;
       }
     }
 
+    input:nth-last-child(2) {
+      width: 7rem;
+    }
     input:nth-last-child(1) {
-      width: 20px;
+      width: 1rem;
     }
 
-    button {
+    .add-item-button {
       color: #9fcdd3;
       border: none;
       border-radius: 5px;
@@ -100,6 +99,7 @@
     }
   }
 
+  // BUDGET ITEMS =======================================================
   .shopping-list-items-container {
     width: 100%;
     display: flex;

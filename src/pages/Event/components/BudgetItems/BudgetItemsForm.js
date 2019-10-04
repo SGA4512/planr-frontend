@@ -68,7 +68,9 @@ const BudgetItemsForm = ({ addListItem, eventId }) => {
           bought?
         </label>
         <div className="item-buttons-container">
-          <button type="submit">Add</button>
+          <button className="add-item-button" type="submit">
+            Add
+          </button>
         </div>
       </form>
     </>

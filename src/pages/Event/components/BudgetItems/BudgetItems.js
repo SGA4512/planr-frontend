@@ -113,7 +113,7 @@ const BudgetItems = ({ budgetItems, budget, eventId }) => {
 
   return (
     <div className="shopping-list-container">
-      <h4>Budget Items</h4>
+      <h4 className="budget-items-title">Budget Items</h4>
       <Expenditures
         totalCost={totalCost}
         purchasedItemsCost={purchasedItemsCost}
