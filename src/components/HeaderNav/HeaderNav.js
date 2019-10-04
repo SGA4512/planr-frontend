@@ -20,7 +20,7 @@ const HeaderNav = props => {
   //     });
   // };
 
-  console.log("user:", user);
+  // console.log("user:", user);
 
   const logout = () => {
     localStorage.removeItem("token");

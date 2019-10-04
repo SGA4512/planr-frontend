@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 
 import HeaderNav from "./components/HeaderNav/HeaderNav";
@@ -11,7 +11,7 @@ import Event from "./pages/Event/scenes/Event";
 
 import UserContext from "./contexts/UserContext";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
-// import { refresh } from "./services/api";
+import { refresh } from "./services/api";
 
 function App() {
   const [user, setUser] = useState({});
@@ -21,15 +21,15 @@ function App() {
     return user && [1, 2].includes(user.role_id);
   };
 
-  // useEffect(() => {
-  //   refresh()
-  //     .then(res => {
-  //       setUser(res.data[0]);
-  //     })
-  //     .catch(err => {
-  //       setUser(false);
-  //     });
-  // }, []);
+  useEffect(() => {
+    refresh()
+      .then(res => {
+        setUser(res.data);
+      })
+      .catch(err => {
+        setUser(false);
+      });
+  }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser, isAdmin }}>

@@ -27,7 +27,7 @@ const LoginForm = ({
   return (
     <div className="form-container">
       <h1>Sign In</h1>
-      <Form>
+      <Form autoComplete="off">
         <Field type="text" name="email" placeholder="Email" />
         {touched.email && errors.email && (
           <p className="error">{errors.email}</p>
@@ -65,7 +65,8 @@ const FormikLoginForm = withFormik({
       .login(values)
       .then(res => {
         localStorage.setItem("token", res.data.token);
-        localStorage.setItem("role_name", res.data.role_name);
+        localStorage.setItem("user_id", res.data.user_id);
+        // localStorage.setItem("role_name", res.data.role_name); // undefined - why?
         setStatus(res.data); // from formik
       })
       .catch(error => {

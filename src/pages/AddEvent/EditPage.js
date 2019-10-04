@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EditEvent from "./EditEvent";
+import * as api from "../../services/api";
 
 const EditPage = props => {
   const eventId = props.match.params.id;
@@ -8,8 +9,8 @@ const EditPage = props => {
   const [event, setEvent] = useState();
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/api/events/${eventId}`)
+    api
+      .getEvent(eventId)
       .then(res => {
         setEvent(res.data);
       })

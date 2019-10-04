@@ -1,9 +1,9 @@
 import axios from "axios";
 import { axiosWithAuth } from "../axiosWithAuth.js";
 
-// const apiUrl = "http://localhost:8000/api";
+const apiUrl = "http://localhost:8000/api";
 // const apiUrl = "https://egge-corporate-ep.herokuapp.com/api";
-const apiUrl = "https://planr-backend.herokuapp.com/api";
+// const apiUrl = "https://planr-backend.herokuapp.com/api";
 
 // EVENTS ======================================================
 // Read all

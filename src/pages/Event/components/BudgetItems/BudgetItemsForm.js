@@ -39,7 +39,11 @@ const BudgetItemsForm = ({ addListItem, eventId }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="add-item-form">
+      <form
+        onSubmit={handleSubmit}
+        autoComplete="off"
+        className="add-item-form"
+      >
         <input
           name="name"
           value={input.name}

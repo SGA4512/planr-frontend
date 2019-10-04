@@ -6,6 +6,10 @@ Planr is a full-stack web application that allows a user to create/save events i
   - Log in as an admin user with email `john@test.com` & password `test`
 - [Corresponding Back-end Repo](https://github.com/lilyhoratio/planr-backend)
 
+## Short demo:
+
+![]()
+
 Features:
 
 - Secure user authentication by hashing passwords with bcrypt
