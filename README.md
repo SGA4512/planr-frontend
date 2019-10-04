@@ -8,7 +8,7 @@ Planr is a full-stack web application that allows a user to create/save events i
 
 ## Short demo:
 
-![]()
+![](https://github.com/lilyhoratio/planr-frontend/tree/master/src/images/signin.gif)
 
 Features:
 
