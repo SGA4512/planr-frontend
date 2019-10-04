@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 // import * as api from "../../services/api";
 import UserContext from "../../contexts/UserContext.js";
 
 const HeaderNav = props => {
-  // const { user, setUser, isAdmin } = useContext(UserContext);
-  const { setUser } = useContext(UserContext);
+  const { user, setUser, isAdmin } = useContext(UserContext);
 
   // if using cookies/sessions on backend
   // const logout = () => {
@@ -21,6 +20,8 @@ const HeaderNav = props => {
   //     });
   // };
 
+  console.log("user:", user);
+
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role_name");
@@ -34,18 +35,23 @@ const HeaderNav = props => {
         <NavLink to="/">Planr</NavLink>
       </div>
       <div className="nav-links">
-        {/* {!user ? (
-          <> */}
         <NavLink to="/register">Register</NavLink>
         <NavLink to="/login">Sign in</NavLink>
-        {/* </>
-        ) : (
-          <> */}
         <NavLink to="/">Your Events</NavLink>
-        {/* {isAdmin() ? <NavLink to="/addevent">Create Event</NavLink> : null} */}
         <NavLink to="/addevent">Create Event</NavLink>
         <button onClick={logout}>Sign out</button>
-        {/* </>
+
+        {/* {user ? (
+          <>
+            <NavLink to="/register">Register</NavLink>
+            <NavLink to="/login">Sign in</NavLink>
+          </>
+        ) : (
+          <>
+            <NavLink to="/">Your Events</NavLink>
+            <NavLink to="/addevent">Create Event</NavLink>
+            <button onClick={logout}>Sign out</button>
+          </>
         )} */}
       </div>
     </nav>

@@ -16,6 +16,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 function App() {
   const [user, setUser] = useState({});
 
+  // update with my backend data
   const isAdmin = () => {
     return user && [1, 2].includes(user.role_id);
   };

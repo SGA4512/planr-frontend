@@ -53,7 +53,7 @@ const BudgetItem = ({
           className={`item-container${listItem.completed ? "-completed" : ""}`}
         >
           <div className="item-text-container">
-            <p onClick={() => editListItem(listItem)}>{listItem.name}</p>
+            <span onClick={() => editListItem(listItem)}>{listItem.name}</span>
           </div>
           <div className="item-text-container">
             <p onClick={() => editListItem(listItem)}> ${listItem.cost}</p>

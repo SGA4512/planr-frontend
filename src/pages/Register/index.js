@@ -82,7 +82,7 @@ const FormikRegistrationForm = withFormik({
     api
       .register(values)
       .then(response => {
-        setStatus(response.data);
+        setStatus(response.data); // user object
       })
       .catch(error => {
         console.log(error);

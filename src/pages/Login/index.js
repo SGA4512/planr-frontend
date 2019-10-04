@@ -19,10 +19,10 @@ const LoginForm = ({
   // update login if change has occured
   useEffect(() => {
     if (status) {
-      setUser(status);
+      setUser(status); // set user to user object from login endpoint response
       props.history.push("/");
     }
-  }, [status, setUser, props.history]);
+  }, [status]);
 
   return (
     <div className="form-container">
@@ -37,7 +37,7 @@ const LoginForm = ({
           <p className="error">{errors.password}</p>
         )}
         <button type="submit">Submit</button>
-        <p>Demo with john@test.com (email) and test (password)</p>
+        <p>Demo using john@test.com (email) and test (password)</p>
       </Form>
     </div>
   );
@@ -64,10 +64,9 @@ const FormikLoginForm = withFormik({
     api
       .login(values)
       .then(res => {
-        console.log(res.data.message);
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("role_name", res.data.role_name);
-        setStatus(res.data);
+        setStatus(res.data); // from formik
       })
       .catch(error => {
         console.log(error.message);

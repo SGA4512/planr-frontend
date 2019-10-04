@@ -8,7 +8,6 @@ import { Timeline } from "antd";
 const EventsList = props => {
   const [eventsList, setEventsList] = useState(null);
   const [searchText, setSearchText] = useState("");
-  // filtered event list var
 
   const handleSearch = e => {
     setSearchText(e.target.value); // on next rerender

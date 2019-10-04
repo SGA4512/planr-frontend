@@ -47,18 +47,20 @@ const Event = props => {
       <div className="event-info-and-buttons">
         <div className="event-info">
           <p>
-            <span>Description: </span>
+            <span className="event-descriptor">Description: </span>
             {event.description}
           </p>
           <p>
-            <span>Date: </span> {startDate} to {endDate}
+            <span className="event-descriptor">Date: </span> {startDate} to{" "}
+            {endDate}
           </p>
           <p>
-            <span>Location: </span> {event.location}
+            <span className="event-descriptor">Location: </span>{" "}
+            {event.location}
           </p>
           <p>
-            <span>Total Budget: </span>
-            <span id="budget">${event.budget}</span>
+            <span className="event-descriptor">Total Budget: </span>
+            <span id="budget"> ${event.budget}</span>
           </p>
         </div>
         <div className="event-buttons-container">
