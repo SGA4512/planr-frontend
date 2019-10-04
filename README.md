@@ -4,7 +4,7 @@ Planr is a full-stack web application that allows a user to create/save events i
 
 - [Deployed front-end](https://planr-events.netlify.com/login)
   - Log in as an demo user with email `john@test.com` & password `test`
-- [Corresponding Back-end Repo](https://github.com/lilyhoratio/planr-backend)
+- [Corresponding Back-end Repo](https://github.com/lilyhoratio/planr-backend) and [APIdocs (WIP)](https://planr-backend-apidocs.netlify.com/)
 
 ## Short demo:
 
