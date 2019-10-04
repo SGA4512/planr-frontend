@@ -35,12 +35,6 @@ const HeaderNav = props => {
         <NavLink to="/">Planr</NavLink>
       </div>
       <div className="nav-links">
-        {/* <NavLink to="/register">Register</NavLink>
-        <NavLink to="/login">Sign in</NavLink>
-        <NavLink to="/">Your Events</NavLink>
-        <NavLink to="/addevent">Create Event</NavLink>
-        <button onClick={logout}>Sign out</button> */}
-
         {Object.entries(user).length === 0 ? (
           <>
             <div></div>
